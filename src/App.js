@@ -35,7 +35,14 @@ class TaskList extends React.Component {
     return (
       <div>
         {this.props.tasks.map(task => {
-          return <Task key={task.id} text={task.text} />
+          return (
+            <Task
+              key={task.id}
+              id={task.id}
+              text={task.text}
+              deleteTask={this.props.deleteTask}
+            />
+          )
         })}
       </div>
     )
@@ -44,11 +51,26 @@ class TaskList extends React.Component {
 
 class Task extends React.Component {
   render() {
-    return <div>{this.props.text}</div>
+    return (
+      <div>
+        {/* {this.props.deleteTask(this.props.key)} */}
+        <p>{this.props.text}</p>
+        <button
+          onClick={() => {
+            // console.log('delete is called', this.props.id)
+            // console.log(this.props.deleteTask)
+            this.props.deleteTask(this.props.id)
+          }}
+        >
+          Delete
+        </button>
+      </div>
+    )
   }
 }
 class App extends Component {
   state = {
+    nextId: 4,
     tasks: [
       {
         id: 1,
@@ -66,14 +88,26 @@ class App extends Component {
   }
 
   addTask = value => {
-    console.log('add task')
     let newTask = {
-      id: 4,
+      id: this.state.nextId,
       text: value,
     }
 
+    this.setState({ nextId: this.state.nextId + 1 })
+
     this.setState({
       tasks: [...this.state.tasks, newTask],
+    })
+  }
+
+  deleteTask = id => {
+    console.log(id)
+    let filteredTasks = this.state.tasks.filter(task => {
+      return task.id !== id
+    })
+
+    this.setState({
+      tasks: filteredTasks,
     })
   }
 
@@ -81,7 +115,7 @@ class App extends Component {
     return (
       <div>
         <TaskForm addTask={this.addTask} />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask} />
       </div>
     )
   }
