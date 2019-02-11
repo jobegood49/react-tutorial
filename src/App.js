@@ -39,7 +39,7 @@ class TaskList extends React.Component {
     return (
       <div>
         {this.state.tasks.map(task => {
-          return <Task id={task.id} text={task.text} />
+          return <Task key={task.id} text={task.text} />
         })}
       </div>
     )
@@ -48,7 +48,7 @@ class TaskList extends React.Component {
 
 class Task extends React.Component {
   render() {
-    return <div key={this.props.id}>{this.props.text}</div>
+    return <div>{this.props.text}</div>
   }
 }
 class App extends Component {
