@@ -43,7 +43,7 @@ span {
   margin-top: 20px;
 }
 
-.task {
+.add-task {
   text-align: center;
 }
 
@@ -51,4 +51,14 @@ span {
   width: 300px;
   padding: 10px;
   margin: 5px;
+}
+
+/*******Task-Card*******/
+
+.task {
+  width: 30rem;
+  padding: 10px;
+  margin: auto;
+  background: lightpink;
+  margin-top: 2px;
 }

@@ -49,7 +49,7 @@ class TaskForm extends React.Component {
     return (
       <div className="form-search-container">
         <div className="form-search">
-          <form onSubmit={this.addTask} className="task">
+          <form onSubmit={this.addTask} className="add-task">
             <input
               type="text"
               placeholder="add a task"
@@ -115,7 +115,7 @@ const NavBar = props => {
 class Task extends React.Component {
   render() {
     return (
-      <div>
+      <div className="task">
         {/* {this.props.deleteTask(this.props.key)} */}
         <p>{this.props.text}</p>
         <button
