@@ -32,7 +32,6 @@ class Counter extends Component {
     )
   }
 }
-
 class TaskForm extends React.Component {
   state = {
     inputValue: '',
@@ -48,15 +47,18 @@ class TaskForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.addTask} className="task">
-          <input
-            type="text"
-            placeholder="add a task"
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Add" />
-        </form>
+      <div className="form-search-container">
+        <div className="form-search">
+          <form onSubmit={this.addTask} className="task">
+            <input
+              type="text"
+              placeholder="add a task"
+              onChange={this.handleChange}
+              className="input-text"
+            />
+            <input className="input-submit" type="submit" value="Add" />
+          </form>
+        </div>
       </div>
     )
   }
@@ -91,7 +93,7 @@ const NavBar = props => {
           <span />
         </div>
         <div>
-          <p>Todo</p>
+          <h1>Todo</h1>
         </div>
         <div class="icon-nav">
           <div>
