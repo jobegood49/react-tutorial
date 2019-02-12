@@ -1,5 +1,37 @@
 import React, { Component } from 'react'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faSearch,
+  faHeart,
+  faPlusSquare,
+} from '@fortawesome/free-solid-svg-icons'
+
+class Counter extends Component {
+  state = {
+    counter: 0,
+  }
+
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1,
+    })
+  }
+  decrement = () => {
+    this.setState({
+      counter: this.state.counter - 1,
+    })
+  }
+  render() {
+    return (
+      <div>
+        <p>{this.state.counter}</p>
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
+      </div>
+    )
+  }
+}
 
 class TaskForm extends React.Component {
   state = {
@@ -47,6 +79,35 @@ class TaskList extends React.Component {
       </div>
     )
   }
+}
+
+const NavBar = props => {
+  return (
+    <div className="nav-bar-container">
+      <div className="nav-bar">
+        <div className="hamburger">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div>
+          <p>Todo</p>
+        </div>
+        <div class="icon-nav">
+          <div>
+            <FontAwesomeIcon icon={faSearch} />
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faHeart} />
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faPlusSquare} />
+          </div>
+        </div>
+      </div>
+      <div />
+    </div>
+  )
 }
 
 class Task extends React.Component {
@@ -114,6 +175,8 @@ class App extends Component {
   render() {
     return (
       <div>
+        {/* <Counter /> */}
+        <NavBar />
         <TaskForm addTask={this.addTask} />
         <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask} />
       </div>
