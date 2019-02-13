@@ -6,6 +6,16 @@ import {
   faHeart,
   faPlusSquare,
 } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
+
+const NavBarDiv = styled.div`
+  width: 48rem;
+  margin: auto;
+  background-color: #ab1359;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+`
 
 class Counter extends Component {
   state = {
@@ -86,7 +96,7 @@ class TaskList extends React.Component {
 const NavBar = props => {
   return (
     <div className="nav-bar-container">
-      <div className="nav-bar">
+      <NavBarDiv>
         <div className="hamburger">
           <span />
           <span />
@@ -106,7 +116,7 @@ const NavBar = props => {
             <FontAwesomeIcon icon={faPlusSquare} />
           </div>
         </div>
-      </div>
+      </NavBarDiv>
       <div />
     </div>
   )
@@ -179,8 +189,10 @@ class App extends Component {
       <div>
         {/* <Counter /> */}
         <NavBar />
-        <TaskForm addTask={this.addTask} />
-        <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask} />
+        <div className="back-drop">
+          <TaskForm addTask={this.addTask} />
+          <TaskList tasks={this.state.tasks} deleteTask={this.deleteTask} />
+        </div>
       </div>
     )
   }

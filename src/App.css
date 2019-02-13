@@ -1,13 +1,15 @@
+/* import Image from './assets/doodle' */
+
 /*******NAV-BAR-CSS*******/
 
-.nav-bar {
+/* .nav-bar {
   width: 48rem;
   margin: auto;
   background-color: #ab1359;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-}
+} */
 
 span {
   display: block;
@@ -61,4 +63,12 @@ span {
   margin: auto;
   background: lightpink;
   margin-top: 2px;
+}
+
+/*******Back-Drop*******/
+
+.back-drop {
+  background-image: url('/assets/doodle.jpg');
+  height: 100vh;
+  margin: 0;
 }
